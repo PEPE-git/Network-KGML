@@ -26,32 +26,31 @@ Constructeur de la classe Fenetre.
  * Constructeur Fenetre
  * Positionnement des éléments graphiques
  */
-	public Fenetre() {
-		JFrame f = new JFrame("Réseau Métabolique");
-		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		f.setSize(2000,1600);
-		this.c = f.getContentPane();
-		c.setLayout(new BorderLayout());
-		
-		this.data = new DataList(); // Les données d'entrée triées
-		
-		// Nord : le Menu Principal
-		this.menuBar = new MenuPrincipal(this);
-		c.add(menuBar,"North");
-		
-		// Dans la partie haute on veut les 2 listes de sélection des voies et des bactéries
-		String[] listeTest1 = {}; 
+public Fenetre() {
+	JFrame f = new JFrame("Réseau Métabolique");
+	f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	f.setSize(2000,1600);
+	this.c = f.getContentPane();
+	c.setLayout(new BorderLayout());
+	this.data = new DataList(); // Les données d'entrée triées
+	
+	// Nord : le Menu Principal
+	this.menuBar = new MenuPrincipal(this);
+	c.add(menuBar,"North");
+	
+	// Dans la partie haute on veut les 2 listes de sélection des voies et des bactéries
+	String[] listeTest1 = {}; 
 		String[] listeTest2 = {}; 
-		this.s = new DataSelection(this,listeTest1,listeTest2);
-		c.add(s,"West");
+	this.s = new DataSelection(this,listeTest1,listeTest2);
+	c.add(s,"West");
+	
+	// Dans la partie centrale le graohe du réseau métabolique
+	this.reseau = new DessinReseau(this);
+	c.add(reseau,"Center");
 		
-		// Dans la partie centrale le graohe du réseau métabolique
-		this.reseau = new DessinReseau(this);
-		c.add(reseau,"Center");
-		
-		f.setContentPane(c);
-		f.setVisible(true);
-	}
+	f.setContentPane(c);
+	f.setVisible(true);
+}
 ```
 
 
@@ -65,13 +64,13 @@ Création du graphe, récupération du viewer et du viewpanel.
  * @param f : fenetre graphique.
  * @see GeneralPathway#viewerGraph()
  */
-	public ViewPanel draw(Fenetre f) {
-		System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-		Graph graph = new MultiGraph(name);
-		Viewer viewer = this.viewerGraph(graph,f);
-		ViewPanel viewpanel = viewer.addDefaultView(false);
-		return viewpanel;
-	}
+public ViewPanel draw(Fenetre f) {
+	System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+	Graph graph = new MultiGraph(name);
+	Viewer viewer = this.viewerGraph(graph,f);
+	ViewPanel viewpanel = viewer.addDefaultView(false);
+	return viewpanel;
+}
 ```
 
  API
