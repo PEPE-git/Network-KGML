@@ -80,4 +80,4 @@ Toutes les instructions quant à l'utilisation du programme se trouvent dans l'o
 
 La Javadoc et l'UML (image UML.png) du projet se trouvent dans le dossier /doc/.
 
-Un jeu de données test des voies métaboliques de 50 espèces bactériennes se trouve dans le dossier /data_test/.
+Un jeu de données test des voies métaboliques de 50 espèces bactériennes se trouve dans le fichier Data_test.zip
