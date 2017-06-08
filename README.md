@@ -54,6 +54,7 @@ Constructeur de la classe Fenetre.
 	}
 ```
 
+
 Fonction draw() de la calsse GeneralPathway.
 Création du graphe, récupération du viewer et du viewpanel.
 (Puis ajout du viewpanel dans un JPanel de la fenêtre, voir classe DessinReseau)
@@ -75,4 +76,9 @@ Création du graphe, récupération du viewer et du viewpanel.
 
  API
  ---
-...
+Le projet utilise la librairie Graphstream. Deux fichiers JAR sont à inclure dans le classpath pour pouvoir exécuter le programme, gs-core et gs-ui que vous pouvez récupérer [ici](http://graphstream-project.org/download/).
+Toutes les instructions quant à l'utilisation du programme se trouvent dans l'onglet Aide du Menu Principal du programme.
+
+La Javadoc et l'UML (image UML.png) du projet se trouvent dans le dossier /doc/.
+
+Un jeu de données test des voies métaboliques de 50 espèces bactériennes se trouve dans le dossier /data_test/.
