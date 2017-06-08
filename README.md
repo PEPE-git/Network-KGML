@@ -20,12 +20,57 @@ java NetworkVizualisation
  Exemple de Code
  ---------------
 
-Utilisez main_Barstar.py pour obtenir toutes les informations pertinentes quant aux changements conformationnels de votre protéine d'intérêt par rapport à sa référence.
-
--Constructeur Fenetre
--draw() GeneralPathway
+Constructeur de la classe Fenetre.
 ```java
+/**
+ * Constructeur Fenetre
+ * Positionnement des éléments graphiques
+ */
+	public Fenetre() {
+		JFrame f = new JFrame("Réseau Métabolique");
+		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		f.setSize(2000,1600);
+		this.c = f.getContentPane();
+		c.setLayout(new BorderLayout());
+		
+		this.data = new DataList(); // Les données d'entrée triées
+		
+		// Nord : le Menu Principal
+		this.menuBar = new MenuPrincipal(this);
+		c.add(menuBar,"North");
+		
+		// Dans la partie haute on veut les 2 listes de sélection des voies et des bactéries
+		String[] listeTest1 = {}; 
+		String[] listeTest2 = {}; 
+		this.s = new DataSelection(this,listeTest1,listeTest2);
+		c.add(s,"West");
+		
+		// Dans la partie centrale le graohe du réseau métabolique
+		this.reseau = new DessinReseau(this);
+		c.add(reseau,"Center");
+		
+		f.setContentPane(c);
+		f.setVisible(true);
+	}
+```
 
+Fonction draw() de la calsse GeneralPathway.
+Création du graphe, récupération du viewer et du viewpanel.
+(Puis ajout du viewpanel dans un JPanel de la fenêtre, voir classe DessinReseau)
+```java
+/**
+ * Retourne un ViewPanel correspondant au graphique réseau.
+ * 
+ * @param f : fenetre graphique.
+ * @see GeneralPathway#viewerGraph()
+ */
+	public ViewPanel draw(Fenetre f) {
+		System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+		Graph graph = new MultiGraph(name);
+		Viewer viewer = this.viewerGraph(graph,f);
+		ViewPanel viewpanel = viewer.addDefaultView(false);
+		return viewpanel;
+	}
 ```
 
  API
