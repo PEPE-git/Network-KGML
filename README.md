@@ -2,6 +2,9 @@
 Visualisation graphique de voies métaboliques d'espèces bactériennes au format KGML
 par DA SILVA OPHELIE & MERCKAERT PIERRE
 
+## To Do:
+-Synopsis
+-English translation
 
  Synopsis
  --------
