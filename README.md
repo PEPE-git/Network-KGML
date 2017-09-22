@@ -5,8 +5,7 @@ par DA SILVA OPHELIE & MERCKAERT PIERRE
 
  To Do:
  ------
--Synopsis
--English translation
+-Synopsis & English translation
 
 
  Synopsis
